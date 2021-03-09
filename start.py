@@ -9,20 +9,20 @@ r = requests.get(url)
 soup = bs4.BeautifulSoup(r.text, 'html.parser')
 #print(soup)
 
-cameras = soup.find('div', attrs={'class':'D_gG M_cf'})
-#print(camera)
+cameras = soup.find('div', attrs={'class':'D_eJ M_um D_S'})
+#print(cameras)
 
-titles = soup.findAll('div', attrs={'class':'D_kE M_ez D_kx D_gz'})
+titles = soup.findAll('div', attrs={'class':'D_iJ M_wN D_iG D_eG'})
 
 for title in titles:
     #print(title.text)
-    #print(title.find('p', attrs={'class':'D_bN M_bt D_bW M_bB D_bZ M_bF D_cc M_bI D_cf M_bK D_ci M_bN D_cl M_bQ D_bK'}).text)
+    print(title.find('p', attrs={'class':'D_be M_bF D_bn M_bO D_bq M_bR D_bt M_bU D_bv M_bW D_by M_bZ D_bA M_cc D_ba'}).text)
 
     #gambar
-    #print(title.find('div', attrs={'class':'D_kQ'}).find('img')['src'])
+    print(title.find('div', attrs={'class':'D_iV'}).find('img')['src'])
 
     #harga
     print(title.find('p', attrs={
-        'class': 'D_bN M_bt D_bW M_bB D_bZ M_bF D_cc M_bI D_cf M_bK D_ci M_bN D_ck M_bP D_bJ'}).text)
+        'class': 'D_be M_bF D_bn M_bO D_bq M_bR D_bt M_bU D_bv M_bW D_by M_bZ D_bA M_cc D_ba'}).text)
 
 
