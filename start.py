@@ -23,6 +23,6 @@ for title in titles:
 
     #harga
     print(title.find('p', attrs={
-        'class': 'D_be M_bF D_bn M_bO D_bq M_bR D_bt M_bU D_bv M_bW D_by M_bZ D_bA M_cc D_ba'}).text)
+        'class': 'D_be M_bF D_bn M_bO D_bq M_bR D_bt M_bU D_bv M_bW D_by M_bZ D_b_ M_cb D_aZ'}).text)
 
 

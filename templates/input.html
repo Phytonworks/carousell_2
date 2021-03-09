@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Caraousell  Scraping</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="static/css/shop-homepage.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Caraousell  Scraping</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+	  <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/kamera-populer">Caraousell Scraping</a>
+		  </li>
+  </ul>
+	</div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-lg-3">
+
+        <h2 class="my-4">Top Camera</h2>
+
+
+      </div>
+      <!-- /.col-lg-3 -->
+
+      <div class="col-lg-9">
+
+        <div class='row my-4'>
+          {% for title in titles %}
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+			  <a href="https://id.carousell.com{{title.find('div', attrs={'class':'D_iV'})[1]['href']|safe}}">
+				    <img src ="{{title.find('div', attrs={'class':'D_iV'})[1]['href']|safe}}" width="253px" height="250px"/>
+			  </a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="https://id.carousell.com{{title.find('p', attrs={'class':'D_be M_bF D_bn M_bO D_bq M_bR D_bt M_bU D_bv M_bW D_by M_bZ D_bA M_cc D_ba'}).text)['href']|safe}}">
+				    "{{title.find('p', attrs={'class':'D_be M_bF D_bn M_bO D_bq M_bR D_bt M_bU D_bv M_bW D_by M_bZ D_bA M_cc D_ba'}.text)['href']|safe}}"/>
+				  </a>
+                </h4>
+
+                <h5 class = "card-text">
+                  <a href="https://id.carousell.com{{title.find('p', attrs={'class': 'D_be M_bF D_bn M_bO D_bq M_bR D_bt M_bU D_bv M_bW D_by M_bZ D_b_ M_cb D_aZ'}).text)['href']|safe}}">
+				    "{{title.find('p', attrs={'class':'D_be M_bF D_bn M_bO D_bq M_bR D_bt M_bU D_bv M_bW D_by M_bZ D_b_ M_cb D_aZ'}.text)['href']|safe}}"/>
+                </h5>
+
+              </div>
+            <div class="card-footer">
+
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+		  {% endfor %}
+
+          </div>
+
+        </div>
+        <!-- /.row -->
+
+      </div>
+      <!-- /.col-lg-9 -->
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; RWID-Caraousell Scrap 2021</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="static/vendor/jquery/jquery.min.js"></script>
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
+
