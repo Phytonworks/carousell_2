@@ -22,7 +22,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="">Tutorial Scraping</a>
+      <a class="navbar-brand" href="#">Tutorial Scraping</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -30,9 +30,9 @@
           <li class="nav-item">
             <a class="nav-link" href="/kamera_populer">Scrap Web Caraousell</a>
 		  </li>
-  </ul>
-	</div>
-  </nav>
+        </ul>
+	      </div>
+        </nav>
 
   <!-- Page Content -->
   <div class="container">
@@ -42,8 +42,6 @@
       <div class="col-lg-3">
 
         <h2 class="my-4">Top Camera</h2>
-
-
       </div>
       <!-- /.col-lg-3 -->
 
@@ -52,25 +50,36 @@
         <div class='row my-4'>
           {% for title in titles %}
           <div class="col-lg-4 col-md-6 mb-4">
+
             <div class="card h-100">
+              <div class="card-headers">
+                <a href="https://id.carousell.com{{title.find('p', attrs={
+                    'class': 'D_aZ M_bz D_bk M_bJ D_bm M_bL D_bp M_bO D_br M_bQ D_bu M_bT D_bx M_bW D_aA'}.text)['href']|safe}}">"{{title.find('p', attrs={'class':'D_aZ M_bz D_bk M_bJ D_bm M_bL D_bp M_bO D_br M_bQ D_bu M_bT D_bx M_bW D_aA'}.text)['href']|safe}}"
+                </a>
+              </div>
+              #gambar
 			  <a href="https://id.carousell.com{{title.find('div', attrs={'class':'D_qe'})[1]['href']|safe}}">
-				    <img src ="{{title.find('div', attrs={'class':'D_qe'})[1]['href']|safe}}" width="253px" height="250px"/>
+				    <img src ="{{title.find('div', attrs={'class':'D_qe'})[1]['href']|safe}}" width="253px" height="250px"
 			  </a>
               <div class="card-body">
                 <h4 class="card-title">
+                  #judul
                   <a href="https://id.carousell.com{{title.find('p', attrs={'class':'D_aZ M_bz D_bj M_bI D_bm M_bL D_bp M_bO D_br M_bQ D_bu M_bT D_bx M_bW D_aA'}.text)['href']|safe}}">
-				    "{{title.find('p', attrs={'class':'D_aZ M_bz D_bj M_bI D_bm M_bL D_bp M_bO D_br M_bQ D_bu M_bT D_bx M_bW D_aA'}.text)['href']|safe}}"/>
+				    "{{title.find('p', attrs={'class':'D_aZ M_bz D_bj M_bI D_bm M_bL D_bp M_bO D_br M_bQ D_bu M_bT D_bx M_bW D_aA'}.text)['href']|safe}}"
 				  </a>
                 </h4>
 
                 <h5 class = "card-text">
+                  #harga
                   <a href="https://id.carousell.com{{title.find('p', attrs={'class': 'D_aZ M_bz D_bj M_bI D_bm M_bL D_bp M_bO D_br M_bQ D_bu M_bT D_bw M_bV D_a_'}.text)['href']|safe}}">
-				    "{{title.find('p', attrs={'class':'D_aZ M_bz D_bj M_bI D_bm M_bL D_bp M_bO D_br M_bQ D_bu M_bT D_bw M_bV D_a_'}.text)['href']|safe}}"/>
+				    "{{title.find('p', attrs={'class':'D_aZ M_bz D_bj M_bI D_bm M_bL D_bp M_bO D_br M_bQ D_bu M_bT D_bw M_bV D_a_'}.text)['href']|safe}}"</a>
                 </h5>
 
               </div>
             <div class="card-footer">
-
+              #deskripsi
+              <a href="https://id.carousell.com{{title.find('p', attrs={'class': 'D_aZ M_bz D_bj M_bI D_bm M_bL D_bp M_bO D_br M_bQ D_bu M_bT D_bw M_bV D_aA'}).text}}">
+				    "{{title.find('p', attrs={'class':'D_aZ M_bz D_bj M_bI D_bm M_bL D_bp M_bO D_br M_bQ D_bu M_bT D_bw M_bV D_aA'}.text)['href']|safe}}"</a>
               </div>
 
             </div>
@@ -100,8 +109,8 @@
   </footer>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="/vendor/jquery/jquery.min.js"></script>
-  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/vendor/jquery/jquery.min.js"></script>
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
