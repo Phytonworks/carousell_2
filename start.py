@@ -1,28 +1,29 @@
 import bs4
 import requests
 
-url = 'https://id.carousell.com/categories/photography-6'
+url = requests.get('https://id.carousell.com/categories/photography-6')
 
-r = requests.get(url)
+#r = requests.get(url)
 #print(r.text)
 
-soup = bs4.BeautifulSoup(r.text, 'html.parser')
+soup = bs4.BeautifulSoup(url.text, 'html.parser')
 #print(soup)
 
-cameras = soup.find('div', attrs={'class':'D_eJ M_um D_S'})
+cameras = soup.find('div', attrs={'class':'D_mT M_bX D_S'})
 #print(cameras)
 
-titles = soup.findAll('div', attrs={'class':'D_iJ M_wN D_iG D_eG'})
+titles = cameras.findAll('div', attrs={'class':'D_pR M_eE D_pO D_mQ'})
+#print(titles)
 
 for title in titles:
     #print(title.text)
-    print(title.find('p', attrs={'class':'D_be M_bF D_bn M_bO D_bq M_bR D_bt M_bU D_bv M_bW D_by M_bZ D_bA M_cc D_ba'}).text)
+    print(title.find('p', attrs={'class':'D_aZ M_bz D_bj M_bI D_bm M_bL D_bp M_bO D_br M_bQ D_bu M_bT D_bx M_bW D_aA'}).text)
 
     #gambar
-    print(title.find('div', attrs={'class':'D_iV'}).find('img')['src'])
+    print(title.find('div', attrs={'class':'D_qe'}).find('img')['src'])
 
     #harga
     print(title.find('p', attrs={
-        'class': 'D_be M_bF D_bn M_bO D_bq M_bR D_bt M_bU D_bv M_bW D_by M_bZ D_b_ M_cb D_aZ'}).text)
+        'class': 'D_aZ M_bz D_bj M_bI D_bm M_bL D_bp M_bO D_br M_bQ D_bu M_bT D_bw M_bV D_a_'}).text)
 
 
