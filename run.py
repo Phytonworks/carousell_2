@@ -15,9 +15,9 @@ def cameras():
     soup = BeautifulSoup(url.text, 'html.parser')
     #print(soup)
 
-    cameras = soup.find('div', attrs={'class': 'D_mT M_bX D_S'})
-    titles = cameras.findAll('div', attrs={'class': 'D_pR M_eE D_pO D_mQ'})
-    return render_template('input.html',title=titles)
+    cameras = soup.find('div', attrs={'class': 'D_R'})
+    titles = cameras.findAll('div', attrs={'class': 'D_pU'})
+    return render_template('input.html',titles=titles)
 
 if __name__ == '__main__':
     app.run(debug=True)

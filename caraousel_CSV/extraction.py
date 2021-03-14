@@ -21,6 +21,7 @@ writer = csv.writer(file)
 headers = ['Nama Toko', 'Nama Produk', 'Harga']
 writer.writerow(headers)
 
+
 for title in titles:
     #nama toko
     toko = (title.find('p', attrs={
@@ -34,5 +35,6 @@ for title in titles:
 
     file = open('hasil_scrap.csv', 'a', newline'', encoding='utf-8')
     writer = csv.writer(file)
-    writer.writerow([toko, nama, harga[])
+    writer.writerow([toko, nama, harga])
     file.close()
+
